@@ -108,14 +108,17 @@ Và ma trận đường đi (qua các đỉnh) : *muốn đi qua đỉnh thứ .
 |5|5|5|-1|-1|-1|4|
 |6|6|6|-1|6|4|-1|
 
-## Tìm đường đi ngắn nhất-
+## Tìm đường đi ngắn nhất
 
 Cuối cùng là tìm đường đi ngắn nhất dựa trên ma trận `path` :
 
-* điểm bắt đầu là 1
-* điểm kết thúc là 7
+Ví dụ
+```
+điểm bắt đầu là xp = 1
+điểm kết thúc là kt = 7
+```
 
-> điểm bắt đầu là 1 thì ta có 3 đỉnh mà đỉnh 1 chắc chắn phải đi qua : 2 5 6
+> dựa theo dòng 0 (xp - 1  = 0) có 3 đỉnh 2 5 6 khác -1 là 3 đỉnh mà đỉnh 1 tới đỉnh 7 chắc chắn phải đi qua
 
 ta đưa vào `stack` -> 2 | 5 | 6 | 7
 
