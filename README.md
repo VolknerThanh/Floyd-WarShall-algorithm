@@ -27,7 +27,6 @@ hàm `CreateOtherMatrix()` là hàm khởi tạo các ma trận `dist` và `path
 > Ví dụ :
 
 |0|7|8|16|inf|inf|inf|
-|---|---|---|---|---|---|---|
 |7|0|inf|inf|3|6|inf|
 |8|inf|0|inf|inf|inf|inf|
 |16|inf|inf|0|inf|2|4|
