@@ -26,11 +26,44 @@ hàm `CreateOtherMatrix()` là hàm khởi tạo các ma trận `dist` và `path
 
 > Ví dụ :
 
-|0|7|8|16|inf|inf|inf|
-|---|---|---|---|---|---|---|
-|7|0|inf|inf|3|6|inf|
+giải thuật floyd-warshall:
+
+```csharp
+for (int k = 0; k < n; k++)
+{
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            if (dist[i, j] > dist[k, j] + dist[i, k])
+            {
+                dist[i, j] = dist[k, j] + dist[i, k];
+                path[i, j] = k + 1;
+            }
+        }
+    }
+}
+```
+|0|7|*8*|16|inf|inf|inf|
+|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+|*7*|0|`inf`|inf|3|6|inf|
 |8|inf|0|inf|inf|inf|inf|
 |16|inf|inf|0|inf|2|4|
 |inf|3|inf|inf|0|2|inf|
 |inf|6|inf|2|2|0|inf|
 |inf|inf|inf|4|inf|inf|0|
+
+nó sẽ tìm `matrix[1,2] > matrix[0,2] + matrix[1,0]`, nếu đúng thì `matrix[1,2] = matrix[0,2] + matrix[1,0]`
+
+|0|7|*8*|16|inf|inf|inf|
+|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+|*7*|0|`15`|inf|3|6|inf|
+|8|inf|0|inf|inf|inf|inf|
+|16|inf|inf|0|inf|2|4|
+|inf|3|inf|inf|0|2|inf|
+|inf|6|inf|2|2|0|inf|
+|inf|inf|inf|4|inf|inf|0|
+
+tương tự những phần tử khác...
+
+*Ta lặp lại n lần (n là số lượng đỉnh)*
