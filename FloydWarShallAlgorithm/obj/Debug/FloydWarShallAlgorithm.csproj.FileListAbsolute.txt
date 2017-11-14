@@ -1,0 +1,6 @@
+D:\Programming\Console C#\FloydWarShallAlgorithm\FloydWarShallAlgorithm\bin\Debug\FloydWarShallAlgorithm.exe.config
+D:\Programming\Console C#\FloydWarShallAlgorithm\FloydWarShallAlgorithm\bin\Debug\FloydWarShallAlgorithm.exe
+D:\Programming\Console C#\FloydWarShallAlgorithm\FloydWarShallAlgorithm\bin\Debug\FloydWarShallAlgorithm.pdb
+D:\Programming\Console C#\FloydWarShallAlgorithm\FloydWarShallAlgorithm\obj\Debug\FloydWarShallAlgorithm.csprojResolveAssemblyReference.cache
+D:\Programming\Console C#\FloydWarShallAlgorithm\FloydWarShallAlgorithm\obj\Debug\FloydWarShallAlgorithm.exe
+D:\Programming\Console C#\FloydWarShallAlgorithm\FloydWarShallAlgorithm\obj\Debug\FloydWarShallAlgorithm.pdb
