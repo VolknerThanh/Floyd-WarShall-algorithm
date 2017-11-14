@@ -107,3 +107,75 @@ Và ma trận đường đi (qua các đỉnh) : *muốn đi qua đỉnh thứ .
 |2|-1|2|6|-1|-1|6|
 |5|5|5|-1|-1|-1|4|
 |6|6|6|-1|6|4|-1|
+
+## Tìm đường đi ngắn nhất-
+
+Cuối cùng là tìm đường đi ngắn nhất dựa trên ma trận `path` :
+
+* điểm bắt đầu là 1
+* điểm kết thúc là 7
+
+> điểm bắt đầu là 1 thì ta có 3 đỉnh mà đỉnh 1 chắc chắn phải đi qua : 2 5 6
+
+ta đưa vào `stack` -> 2 | 5 | 6 | 7
+
+> Kiểm tra
+
+trước hết tạo danh sách đường đi : `list<int>`
+
+thêm phần tử đầu tiên : `list.add(xp)`
+
+Lập lần 1
+```
+xp = 1 - 1 = 0;
+kt = st.pop() = 2;
+[xp, kt - 1] = -1 (đúng vì không có đỉnh nào chen giữa đỉnh 1 và 2)
+-> thêm đỉnh : 2
+cập nhật lại : xp = kt = 2;
+```
+
+Lập lần 2
+```
+xp = 2 - 1 = 1;
+kt = st.pop() = 5;
+[xp, kt - 1] = -1 (đúng vì không có đỉnh nào chen giữa đỉnh 2 và 5)
+-> thêm đỉnh : 5
+cập nhật lại : xp = kt = 5;
+```
+
+Lập lần 3
+```
+xp = 5 - 1 = 4;
+kt = st.pop() = 6;
+[xp, kt - 1] = -1 (đúng vì không có đỉnh nào chen giữa đỉnh 5 và 6)
+-> thêm đỉnh : 6
+cập nhật lại : xp = kt = 6;
+```
+
+Lập lần 4
+```
+xp = 6 - 1 = 5;
+kt = st.pop() = 7;
+[xp, kt - 1] = 4 (Xuất hiện đỉnh chen giữa đỉnh 6 và 7)
+
+-> thêm đỉnh : 4
+thêm lại phần tử kt (7) vào stack (nếu không thì stack sẽ rỗng và bỏ qua phần tử này)
+
+cập nhật lại : xp = [xp, kt - 1] = 4;
+```
+
+Lập lần 5
+```
+xp = 4 - 1 = 3;
+kt = st.pop() = 7;
+[xp, kt - 1] = -1 (đúng vì không có đỉnh nào chen giữa đỉnh 4 và 7)
+-> thêm đỉnh : 7
+cập nhật lại : xp = kt = 3;
+```
+
+lúc này `stack` rỗng nên dừng vòng lặp.
+
+Xuất danh sách ta sẽ đc : 1 2 5 6 4 7
+
+Kết thúc.
+---
