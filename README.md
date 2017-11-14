@@ -55,6 +55,8 @@ for (int k = 0; k < n; k++)
 
 nó sẽ tìm `matrix[1,2] > matrix[0,2] + matrix[1,0]`, nếu đúng thì `matrix[1,2] = matrix[0,2] + matrix[1,0]`
 
+với hình thì `matrix[1,2]` là `inf`, `matrix[0,2]` là 8 và `matrix[1,0]` là 7
+
 |0|7|*8*|16|inf|inf|inf|
 |:--:|:--:|:--:|:--:|:--:|:--:|:--:|
 |*7*|0|`15`|inf|3|6|inf|
@@ -66,4 +68,42 @@ nó sẽ tìm `matrix[1,2] > matrix[0,2] + matrix[1,0]`, nếu đúng thì `matr
 
 tương tự những phần tử khác...
 
-*Ta lặp lại n lần (n là số lượng đỉnh)*
+*Ta lặp lại n lần (n là số lượng đỉnh) với vòng lặp `k = 0; k < n; k++`*
+
+> lúc này ma trận path cũng cập nhật lại vị trí `k`. Lưu ý, `k` là *đỉnh* chứ không phải cạnh hay trọng số !!!
+
+
+## Đồ thị chạy minh họa
+
+Đây là đồ thị gốc : 
+
+|0|7|8|16|inf|inf|inf|
+|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+|7|0|inf|inf|3|6|inf|
+|8|inf|0|inf|inf|inf|inf|
+|16|inf|inf|0|inf|2|4|
+|inf|3|inf|inf|0|2|inf|
+|inf|6|inf|2|2|0|inf|
+|inf|inf|inf|4|inf|inf|0|
+
+Sau khi ta chạy hết vòng lặp, ta được ma trận dist như sau : 
+
+|0|7|8|14|10|12|18|
+|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+|7|0|15|7|3|5|11|
+|8|15|0|22|18|20|26|
+|14|7|22|0|4|2|4|
+|10|3|18|4|0|2|8|
+|12|5|20|2|2|0|6|
+|18|11|26|4|8|6|0|
+
+Và ma trận đường đi (qua các đỉnh) : *muốn đi qua đỉnh thứ ... thì phải qua các đỉnh này*
+
+|-1|-1|-1|6|2|5|6|
+|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+|-1|-1|1|6|-1|5|6|
+|-1|1|-1|6|2|5|6|
+|6|6|6|-1|6|-1|-1|
+|2|-1|2|6|-1|-1|6|
+|5|5|5|2|-1|-1|4|
+|6|6|6|-1|6|4|-1|
