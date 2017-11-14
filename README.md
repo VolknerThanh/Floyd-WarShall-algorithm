@@ -18,9 +18,19 @@ hàm `CreateOtherMatrix()` là hàm khởi tạo các ma trận `dist` và `path
 
 > tại sao không kết hợp 2 hàm `Create()` và hàm `CreateOtherMatrix()` ?
 
-**Vì nếu ta kết hợp 2 hàm, ma trận sẽ được khởi tạo với giá trị của tất cả các phần tử đều bằng nhau (10000). Sau khi ta thay đổi trọng số, ta gán lại thì tất cả các phần tử đều có giá trị y hệt nhau => bug**
+**- Vì nếu ta kết hợp 2 hàm, ma trận sẽ được khởi tạo với giá trị của tất cả các phần tử đều bằng nhau (10000). Sau khi ta thay đổi trọng số, ta gán lại thì tất cả các phần tử đều có giá trị y hệt nhau => bug**
 
 > tại sao không gán trọng số bằng `int.MaxValue` mà phải cho gán số khác ?
 
-**Vì `int.MaxValue` cộng cho 1 số nào đó thì nó sẽ quay về âm => bug**
+**- Vì `int.MaxValue` cộng cho 1 số nào đó thì nó sẽ quay về âm => bug**
 
+> Ví dụ :
+
+|0|7|8|16|inf|inf|inf|
+|---|---|---|---|---|---|---|
+|7|0|inf|inf|3|6|inf|
+|8|inf|0|inf|inf|inf|inf|
+|16|inf|inf|0|inf|2|4|
+|inf|3|inf|inf|0|2|inf|
+|inf|6|inf|2|2|0|inf|
+|inf|inf|inf|4|inf|inf|0|
